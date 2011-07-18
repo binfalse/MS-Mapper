@@ -66,11 +66,6 @@ public class MapCreator
 		Map2D mapper = null;
 		BufferedImage bi;
 		
-		args = new String [] {
-				"--in", "/tmp/VH10J1_PE_7_2.raw.mzxml",
-				"--out", "/tmp/pic-" + System.currentTimeMillis () + ".png",
-				"--legend"};
-		
 		for (int i = 0; i < args.length; i++)
 		{
 			if (i < args.length - 1)
@@ -105,6 +100,16 @@ public class MapCreator
 				if (args[i].equals ("--out"))
 				{
 					outfile = args[++i];
+					continue;
+				}
+				if (args[i].equals ("--width"))
+				{
+					width = Integer.parseInt (args[++i]);
+					continue;
+				}
+				if (args[i].equals ("--height"))
+				{
+					height = Integer.parseInt (args[++i]);
 					continue;
 				}
 			}

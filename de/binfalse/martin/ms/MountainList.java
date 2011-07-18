@@ -47,7 +47,7 @@ public class MountainList
 	public MountainList (File file) throws NumberFormatException, IOException
 	{
 		mountains = new Vector<Mountain> ();
-		
+		boolean cont = true;
 		BufferedReader br = new BufferedReader (new FileReader (file));
 		while (br.ready ())
 		{
@@ -55,6 +55,11 @@ public class MountainList
 
 			if (line.startsWith ("#"))
 				continue;
+			if (cont)
+			{
+				cont = false;
+				continue;
+			}
 			mountains.add (new Mountain (line));
 		}
 		br.close ();
