@@ -1,5 +1,5 @@
 /*
- * MS-Mapper - generate 2D intensityu maps of MAss-Spec data
+ * MS-Mapper - generate 2D intensity maps of Mass-Spec data
  * Copyright (C) 2011 Martin Scharm
  * 
  * This program is free software: you can redistribute it and/or modify

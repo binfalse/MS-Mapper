@@ -1,5 +1,5 @@
 /*
- * MS-Mapper - generate 2D intensityu maps of MAss-Spec data
+ * MS-Mapper - generate 2D intensity maps of Mass-Spec data
  * Copyright (C) 2011 Martin Scharm
  * 
  * This program is free software: you can redistribute it and/or modify
@@ -424,7 +424,7 @@ public class MapCreatorGui extends javax.swing.JFrame
     
     jComboBoxColor = new javax.swing.JComboBox ();
     jComboBoxScale = new javax.swing.JComboBox ();
-    jComboBoxColor.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "motley", "heat", "gray" }));
+    jComboBoxColor.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "heat", "motley", "gray" }));
     jComboBoxScale.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "natural logaritm", "square root", "none" }));
 
     jButtonRun.addActionListener (new java.awt.event.ActionListener ()
