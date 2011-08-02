@@ -32,6 +32,7 @@ import de.binfalse.martin.algorithm.Map2DPL;
 import de.binfalse.martin.ms.MountainList;
 import de.binfalse.martin.tools.ColorModel;
 import de.binfalse.martin.tools.ColorModelGray;
+import de.binfalse.martin.tools.ColorModelHeat;
 import de.binfalse.martin.tools.ColorModelMotley;
 import de.binfalse.martin.tools.Scaler;
 import de.binfalse.martin.tools.ScalerLog;
@@ -121,6 +122,11 @@ public class MapCreator
 			if (args[i].equals ("--motley"))
 			{
 				cm = new ColorModelMotley ();
+				continue;
+			}
+			if (args[i].equals ("--heat"))
+			{
+				cm = new ColorModelHeat ();
 				continue;
 			}
 			if (args[i].equals ("--gray"))

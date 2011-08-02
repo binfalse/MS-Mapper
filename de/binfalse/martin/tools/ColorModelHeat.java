@@ -33,7 +33,7 @@ import java.awt.image.BufferedImage;
  * @author Martin Scharm
  *
  */
-public class ColorModelMotley
+public class ColorModelHeat
 		extends ColorModel
 {
 
@@ -43,7 +43,32 @@ public class ColorModelMotley
 	@Override
 	public void setColor (Graphics g, double v)
 	{
-		g.setColor (Color.getHSBColor ((float) ((200. / 360.) + (220. / 360.) * v / max), 1, (float) (v / max)));//new Color ((int) (255. * v / max), (int) (255. * v / max), (int) (255. * v / max)));
+		double scale = v / max;
+		if (scale < .25)
+		{
+			// black to blue
+			scale *= 4.;
+			g.setColor (new Color (0, 0, (float) scale));
+		}
+		else if (scale < .5)
+		{
+			//blue to red
+			scale = (scale - .25) * 4;
+			g.setColor (new Color ((float) scale, 0, (float) (1. - scale)));
+		}
+		else if (scale < .75)
+		{
+			//red to yellow
+			scale = (scale - .5) * 4;
+			g.setColor (new Color (1, (float) scale, 0));
+		}
+		else
+		{
+			// yellow to white
+			scale = (scale - .75) * 4;
+			g.setColor (new Color (1, 1, (float) scale));
+		}
+		//g.setColor (Color.getHSBColor ((float) ((200. / 360.) + (220. / 360.) * v / max), (float) (1. - v / max), (float) (v / max)));//new Color ((int) (255. * v / max), (int) (255. * v / max), (int) (255. * v / max)));
 	}
 
 	/* (non-Javadoc)

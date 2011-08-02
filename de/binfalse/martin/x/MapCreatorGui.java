@@ -31,6 +31,7 @@ import de.binfalse.martin.algorithm.Map2D;
 import de.binfalse.martin.algorithm.Map2DMZXML;
 import de.binfalse.martin.tools.ColorModel;
 import de.binfalse.martin.tools.ColorModelGray;
+import de.binfalse.martin.tools.ColorModelHeat;
 import de.binfalse.martin.tools.ColorModelMotley;
 import de.binfalse.martin.tools.Scaler;
 import de.binfalse.martin.tools.ScalerLog;
@@ -146,6 +147,8 @@ public class MapCreatorGui extends javax.swing.JFrame
 		
 		if (((String) jComboBoxColor.getSelectedItem ()).equals ("gray"))
 			cm = new ColorModelGray ();
+		if (((String) jComboBoxColor.getSelectedItem ()).equals ("heat"))
+			cm = new ColorModelHeat ();
 		else
 			cm = new ColorModelMotley ();
 		
@@ -315,6 +318,22 @@ public class MapCreatorGui extends javax.swing.JFrame
   private void chooseInput ()
   {
 		javax.swing.JFileChooser fc = new javax.swing.JFileChooser (".");
+		
+		fc.setFileFilter (new javax.swing.filechooser.FileFilter ()
+		{
+			
+			public boolean accept (java.io.File f)
+			{
+				return f.getName ().toLowerCase ().endsWith (".mzxml")
+						|| f.isDirectory ();
+			}
+			
+
+			public String getDescription ()
+			{
+				return "MZXML (*.mzxml)";
+			}
+		});
 
 		int returnVal = fc.showOpenDialog (this);
 		if (returnVal == javax.swing.JFileChooser.APPROVE_OPTION)
@@ -405,7 +424,7 @@ public class MapCreatorGui extends javax.swing.JFrame
     
     jComboBoxColor = new javax.swing.JComboBox ();
     jComboBoxScale = new javax.swing.JComboBox ();
-    jComboBoxColor.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "motley", "gray" }));
+    jComboBoxColor.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "motley", "heat", "gray" }));
     jComboBoxScale.setModel (new javax.swing.DefaultComboBoxModel (new String[] { "natural logaritm", "square root", "none" }));
 
     jButtonRun.addActionListener (new java.awt.event.ActionListener ()

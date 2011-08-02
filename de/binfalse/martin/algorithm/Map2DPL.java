@@ -109,8 +109,11 @@ public class Map2DPL
 		for (int w = 0; w < matrix.length; w++)
 			for (int h = 0; h < matrix[w].length; h++)
 			{
+				if (matrix[w][h] < 1)
+					continue;
 				col.setColor (g, matrix[w][h]);
-				g.drawLine(w, h, w, h);
+				g.fillRect (w - 1, h - 1, 3, 3);
+				//g.drawLine(w, h, w, h);
 			}
 		
 
