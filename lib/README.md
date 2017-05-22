@@ -1,0 +1,1 @@
+The file [viewer.jar](viewer.jar) was obtained from [github.com/dhmay/msInspect](https://github.com/dhmay/msInspect), which is unfortunately not available as a Maven artifact. msInspect is licensed under the terms of the [Apache License 2.0](https://github.com/dhmay/msInspect/blob/da0b5f78a50b459173780bda1d6ee5991edf783e/LICENSE).
